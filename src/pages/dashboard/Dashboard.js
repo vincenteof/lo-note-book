@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Route, Switch} from 'react-router-dom'
 import classNames from 'classnames'
 
 import { withStyles } from '@material-ui/core/styles'
@@ -18,6 +17,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 
 import listItems from './listItems'
+import DashboardRoutes from './DashboardRoutes'
 
 const drawerWidth = 240
 
@@ -110,7 +110,6 @@ class Dashboard extends React.Component {
 
     render() {
         const { classes } = this.props
-
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -132,7 +131,7 @@ class Dashboard extends React.Component {
                                 <MenuIcon />
                             </IconButton>
                             <Typography variant="title" color="inherit" noWrap className={classes.title}>
-                                主菜单
+                                萝笔记
                             </Typography>
                             <IconButton color="inherit">
                                 <Badge badgeContent={4} color="secondary">
@@ -157,9 +156,7 @@ class Dashboard extends React.Component {
                         <List>{listItems}</List>
                     </Drawer>
                     <main className={classes.content}>
-                        <Switch>
-                            <Route />
-                        </Switch>
+                        <DashboardRoutes />
                     </main>
                 </div>
             </React.Fragment>

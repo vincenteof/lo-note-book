@@ -10,7 +10,7 @@ const listItems = (
             <ListItemIcon>
                 <DashboardIcon />
             </ListItemIcon>
-            <ListItemText primary="主菜单" />
+            <ListItemText primary="近期笔记" />
         </ListItem>
     </div>
 )

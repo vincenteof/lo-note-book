@@ -58,11 +58,11 @@ class Login extends Component {
                         <Typography variant="headline">登录</Typography>
                         <form className={classes.form}>
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="email">Email Address</InputLabel>
+                                <InputLabel htmlFor="email">邮箱地址</InputLabel>
                                 <Input id="email" name="email" autoComplete="email" autoFocus />
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
-                                <InputLabel htmlFor="password">Password</InputLabel>
+                                <InputLabel htmlFor="password">密码</InputLabel>
                                 <Input
                                     name="password"
                                     type="password"
