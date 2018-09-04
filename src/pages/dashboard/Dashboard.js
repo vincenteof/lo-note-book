@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import {observer, inject} from 'mobx-react'
 
 import {withStyles} from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
@@ -95,46 +96,39 @@ const styles = theme => ({
     },
 })
 
+@inject('rootStore')
+@observer
 class Dashboard extends React.Component {
-    state = {
-        open: true,
-        selected: 0
-    }
-
     handleDrawerOpen = () => {
-        this.setState({open: true})
+        const dashboardStore = this.props.rootStore.dashboardStore
+        dashboardStore.setOpen(true)
     }
 
     handleDrawerClose = () => {
-        this.setState({open: false})
+        const dashboardStore = this.props.rootStore.dashboardStore
+        dashboardStore.setOpen(false)
     }
-
-    changeSelectState = (key) => {
-        this.setState({
-            selected: key
-        })
-    }
-
-    getCurrentSelected = () => this.state.selected
 
     render() {
-        const { classes } = this.props
+        const {classes, rootStore} = this.props
+        const dashboardStore = rootStore.dashboardStore
+
         return (
             <React.Fragment>
                 <CssBaseline />
                 <div className={classes.root}>
                     <AppBar
                         position="absolute"
-                        className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
+                        className={classNames(classes.appBar, dashboardStore.open && classes.appBarShift)}
                     >
-                        <Toolbar disableGutters={!this.state.open} className={classes.toolbar}>
+                        <Toolbar disableGutters={!dashboardStore.open} className={classes.toolbar}>
                             <IconButton
                                 color="inherit"
                                 aria-label="Open drawer"
                                 onClick={this.handleDrawerOpen}
                                 className={classNames(
                                     classes.menuButton,
-                                    this.state.open && classes.menuButtonHidden,
+                                    dashboardStore.open && classes.menuButtonHidden,
                                 )}
                             >
                                 <MenuIcon />
@@ -152,9 +146,9 @@ class Dashboard extends React.Component {
                     <Drawer
                         variant="permanent"
                         classes={{
-                            paper: classNames(classes.drawerPaper, !this.state.open && classes.drawerPaperClose),
+                            paper: classNames(classes.drawerPaper, !dashboardStore.open && classes.drawerPaperClose),
                         }}
-                        open={this.state.open}
+                        open={dashboardStore.open}
                     >
                         <div className={classes.toolbarIcon}>
                             <IconButton onClick={this.handleDrawerClose}>
@@ -163,10 +157,7 @@ class Dashboard extends React.Component {
                         </div>
                         <Divider />
                         <List>
-                            <Items
-                                onItemClick={this.changeSelectState}
-                                getSelected={this.getCurrentSelected}
-                            />
+                            <Items />
                         </List>
                     </Drawer>
                     <main className={classes.content}>

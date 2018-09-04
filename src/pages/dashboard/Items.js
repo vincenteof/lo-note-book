@@ -1,6 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
-import PropTypes from 'prop-types'
+import {observer, inject} from 'mobx-react'
 
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
@@ -16,15 +16,17 @@ const items = [
 ]
 
 
+@inject('rootStore')
+@observer
 class Items extends React.Component {
     handleClickHOF = (path, key) => (() => {
-        const {history, onItemClick} = this.props
-        onItemClick(key)
+        const {history, rootStore} = this.props
+        rootStore.dashboardStore.setSelectedItemKey(key)
         history.push(path)
     })
 
     render() {
-        const {getSelected} = this.props
+        const {rootStore} = this.props
 
         return (
             <React.Fragment>
@@ -34,7 +36,7 @@ class Items extends React.Component {
                             key={i}
                             button
                             onClick={this.handleClickHOF(path, i)}
-                            selected={getSelected() === i}
+                            selected={rootStore.dashboardStore.selectedItemKey === i}
                         >
                             <ListItemIcon>
                                 {icon}
@@ -46,11 +48,6 @@ class Items extends React.Component {
             </React.Fragment>
         )
     }
-}
-
-Items.propTypes = {
-    onItemClick: PropTypes.func.isRequired,
-    getSelected: PropTypes.func.isRequired
 }
 
 export default withRouter(Items)

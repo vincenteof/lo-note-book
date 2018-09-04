@@ -9,6 +9,7 @@ const DashboardRoutes = () => (
         <Route path="/dashboard" exact render={() => <Redirect to="/dashboard/recent" push/>} />
         <Route path="/dashboard/recent" component={RecentNotes} />
         <Route path="/dashboard/create" component={CreateNote} />
+        <Route render={() => <Redirect to='/404'/>} />
     </Switch>
 )
 
