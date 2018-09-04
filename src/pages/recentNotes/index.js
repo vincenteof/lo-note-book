@@ -1,3 +1,3 @@
-import RecentNotes from './recentNotes'
+import RecentNotes from './RecentNotes'
 
 export default RecentNotes

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-import { withStyles } from '@material-ui/core/styles'
+import {withStyles} from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import Drawer from '@material-ui/core/Drawer'
 import AppBar from '@material-ui/core/AppBar'
@@ -16,7 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu'
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import NotificationsIcon from '@material-ui/icons/Notifications'
 
-import listItems from './listItems'
+import Items from './Items'
 import DashboardRoutes from './DashboardRoutes'
 
 const drawerWidth = 240
@@ -98,15 +98,24 @@ const styles = theme => ({
 class Dashboard extends React.Component {
     state = {
         open: true,
+        selected: 0
     }
 
     handleDrawerOpen = () => {
-        this.setState({ open: true })
+        this.setState({open: true})
     }
 
     handleDrawerClose = () => {
-        this.setState({ open: false })
+        this.setState({open: false})
     }
+
+    changeSelectState = (key) => {
+        this.setState({
+            selected: key
+        })
+    }
+
+    getCurrentSelected = () => this.state.selected
 
     render() {
         const { classes } = this.props
@@ -131,7 +140,7 @@ class Dashboard extends React.Component {
                                 <MenuIcon />
                             </IconButton>
                             <Typography variant="title" color="inherit" noWrap className={classes.title}>
-                                萝笔记
+                                笔记
                             </Typography>
                             <IconButton color="inherit">
                                 <Badge badgeContent={4} color="secondary">
@@ -153,9 +162,15 @@ class Dashboard extends React.Component {
                             </IconButton>
                         </div>
                         <Divider />
-                        <List>{listItems}</List>
+                        <List>
+                            <Items
+                                onItemClick={this.changeSelectState}
+                                getSelected={this.getCurrentSelected}
+                            />
+                        </List>
                     </Drawer>
                     <main className={classes.content}>
+                        <div className={classes.appBarSpacer} />
                         <DashboardRoutes />
                     </main>
                 </div>
