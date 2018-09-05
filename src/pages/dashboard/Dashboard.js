@@ -83,7 +83,7 @@ const styles = theme => ({
     },
     appBarSpacer: theme.mixins.toolbar,
     content: {
-        flexGrow: 1,
+        // // flexGrow: 1,
         padding: theme.spacing.unit * 3,
         height: '100vh',
         overflow: 'auto',
@@ -134,7 +134,6 @@ class Dashboard extends React.Component {
                                 <MenuIcon />
                             </IconButton>
                             <Typography variant="title" color="inherit" noWrap className={classes.title}>
-                                萝笔记
                             </Typography>
                             <IconButton color="inherit">
                                 <Badge badgeContent={4} color="secondary">

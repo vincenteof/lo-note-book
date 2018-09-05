@@ -40,21 +40,18 @@ class NotFound extends Component {
                             title="Contemplative Reptile"
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="headline" component="h2">
-                                Lizard
+                            <Typography gutterBottom variant="display2">
+                                Wrong World
                             </Typography>
                             <Typography component="p">
-                                Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                                across all continents except Antarctica
+                                HTTP 404……<br />
+                                这是一个错误的世界. 你需要找到门(find the door)
                             </Typography>
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
                         <Button size="small" color="primary">
-                            Share
-                        </Button>
-                        <Button size="small" color="primary">
-                            Learn More
+                            回到首页
                         </Button>
                     </CardActions>
                 </Card>

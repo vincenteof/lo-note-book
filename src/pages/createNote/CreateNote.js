@@ -1,9 +1,13 @@
 import React from 'react'
 
-const CreateNote = () => (
-    <div>
-        新建
-    </div>
-)
+class CreateNote extends React.Component {
+    render() {
+        return (
+            <div>
+
+            </div>
+        )
+    }
+}
 
 export default CreateNote
