@@ -10,12 +10,14 @@ import CardMedia from '@material-ui/core/CardMedia'
 import Button from '@material-ui/core/Button'
 import Typography from '@material-ui/core/Typography'
 
+import westWorldPic from '../../static/images/west-world.jpg'
+
 const styles = {
     card: {
         maxWidth: 345,
     },
     media: {
-        height: 140,
+        height: 200,
     },
     outer: {
         display: 'flex',
@@ -36,13 +38,13 @@ class NotFound extends Component {
                     <CardActionArea>
                         <CardMedia
                             className={classes.media}
-                            image="/static/images/cards/contemplative-reptile.jpg"
-                            title="Contemplative Reptile"
+                            image={westWorldPic}
+                            title="West World"
                         />
                         <CardContent>
-                            <Typography gutterBottom variant="display2">
-                                Wrong World
-                            </Typography>
+                            {/*<Typography gutterBottom variant="display2">*/}
+                                {/*Wrong World*/}
+                            {/*</Typography>*/}
                             <Typography component="p">
                                 HTTP 404……<br />
                                 这是一个错误的世界. 你需要找到门(find the door)
