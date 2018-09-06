@@ -30,6 +30,11 @@ const styles = {
 }
 
 class NotFound extends Component {
+    backToHomePage = () => {
+        const {history} = this.props
+        history.push('/dashboard')
+    }
+
     render() {
         const {classes} = this.props
         return (
@@ -42,9 +47,6 @@ class NotFound extends Component {
                             title="West World"
                         />
                         <CardContent>
-                            {/*<Typography gutterBottom variant="display2">*/}
-                                {/*Wrong World*/}
-                            {/*</Typography>*/}
                             <Typography component="p">
                                 HTTP 404……<br />
                                 这是一个错误的世界. 你需要找到门(find the door)
@@ -52,7 +54,11 @@ class NotFound extends Component {
                         </CardContent>
                     </CardActionArea>
                     <CardActions>
-                        <Button size="small" color="primary">
+                        <Button
+                            size="small"
+                            color="primary"
+                            onClick={this.backToHomePage}
+                        >
                             回到首页
                         </Button>
                     </CardActions>

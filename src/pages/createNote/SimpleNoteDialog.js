@@ -11,7 +11,8 @@ import DialogTitle from '@material-ui/core/DialogTitle'
 
 const styles = theme => ({
     button: {
-        margin: theme.spacing.unit,
+        marginTop: theme.spacing.unit,
+        marginBottom: theme.spacing.unit * 5
     }
 })
 

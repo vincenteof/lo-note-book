@@ -8,6 +8,13 @@ import NotFound from './pages/notFound'
 import Dashboard from './pages/dashboard'
 
 
+// prob:
+// 1. label of rich text editor
+// 2. avatar
+// 3. motion for transaction
+// 4. auth
+// 5. register
+// 6. connect to backend
 const Main = () => (
     <Switch>
         <Route path="/" exact render={() => <Redirect to="/login" push/>} />
