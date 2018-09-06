@@ -21,11 +21,11 @@ class SimpleNoteDialog extends React.Component {
     }
 
     handleClickOpen = () => {
-        this.setState({ open: true });
+        this.setState({open: true});
     }
 
     handleClose = () => {
-        this.setState({ open: false });
+        this.setState({open: false});
     }
 
 
@@ -49,7 +49,7 @@ class SimpleNoteDialog extends React.Component {
                     <DialogTitle id="form-dialog-title">生成简易笔记</DialogTitle>
                     <DialogContent>
                         <DialogContentText>
-                            简易笔记用于记录你的想法活灵感，请输入简易笔记内容
+                            简易笔记用于记录你的想法或灵感，请输入简易笔记内容
                         </DialogContentText>
                         <TextField
                             autoFocus
